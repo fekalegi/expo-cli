@@ -1,24 +1,30 @@
 import React from 'react';
-import { View, StyleSheet, ToastAndroid, Button, StatusBar } from 'react-native';
+import { SafeAreaView, StyleSheet, ToastAndroid, Button, Image, StatusBar } from 'react-native';
 
 export default function App() {
-  function showToast() {
+  function handlePress() {
     ToastAndroid.show('Request sent successfully!', ToastAndroid.SHORT);
+    console.log("The Button is Pressed")
   }
 
   return (
-    <View style={styles.container}>
-      <Button title="Show Toast" onPress={showToast} />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Image source={{
+        width: 200,
+        height: 300,
+        uri: "https://picsum.photos/200/300"}}  />
+      <Button title="Show Toast" onPress={handlePress} />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     paddingTop: StatusBar.currentHeight,
-    backgroundColor: '#6638f0',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
     padding: 8,
   },
 });
